@@ -5,6 +5,15 @@
   "projects": {
     "diamondtrade-client": {
       "projectType": "application",
+      "i18n": {
+        "sourceLocale": "hu-HU",
+        "locales": {
+          "en": {
+            "translation": "src/locale/messages.en.xlf",
+            "baseHref": ""
+          }
+        }
+      },
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
@@ -12,11 +21,13 @@
       },
       "root": "",
       "sourceRoot": "src",
+
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "localize":true,
             "outputPath": "dist/diamondtrade-client",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -56,9 +67,13 @@
               "outputHashing": "all"
             },
             "development": {
+              "localize": false,
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "en": {
+              "localize": ["en"]
             }
           },
           "defaultConfiguration": "production"
