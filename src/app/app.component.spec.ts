@@ -17,7 +17,7 @@ describe('AppComponent', () => {
   it(`should have the 'diamondtrade-client' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('diamondtrade-client');
+    expect(app.title).toEqual(`diamondtrade-client`);
   });
 
   it('should render title', () => {

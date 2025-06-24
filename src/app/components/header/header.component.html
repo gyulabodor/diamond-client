@@ -1,0 +1,39 @@
+<ng-container *ngIf="deviceScreenService.deviceScreen$ | async as deviceScreen">
+
+  <ng-container *ngIf="deviceScreen === ScreenSize.LARGE">
+    <div class="web-header">
+      <nav>
+        <ul class="nav-ul">
+          <li class="nav-li" *ngFor="let pageData of ACTUAL_PAGES_DATA">
+            <a class="nav-a"
+               routerLink="{{pageData.url}}">{{ pageData.navButtonText }}</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="deviceScreen === ScreenSize.MOBILE">
+    <div class="mobile-header">
+      <mat-toolbar color="primary">
+
+        <ng-container *ngIf="toggled$ | async">
+          <mat-toolbar-row *ngFor="let pageData of ACTUAL_PAGES_DATA">
+            <a class="nav-a"
+               routerLink="{{pageData.url}}">{{ pageData.navButtonText }}</a>
+          </mat-toolbar-row>
+        </ng-container>
+
+        <mat-toolbar-row>
+          <button mat-icon-button (click)="toggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
+        </mat-toolbar-row>
+
+
+      </mat-toolbar>
+    </div>
+  </ng-container>
+
+</ng-container>
+
